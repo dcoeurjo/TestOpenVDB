@@ -37,6 +37,11 @@ int main(int argc, char **argv)
   }
   trace.endBlock();
   
+  //Pruning
+  trace.beginBlock("Pruning");
+  grid->pruneGrid();
+  trace.endBlock();
+  
   //Export
   trace.beginBlock("Exporting");
   openvdb::GridPtrVecPtr grids(new openvdb::GridPtrVec);

@@ -29,12 +29,15 @@ int main(int argc, char **argv)
   //Feeding the openvdb
   trace.beginBlock("Inserting values");
   openvdb::Int32Grid::Accessor accessor = grid->getAccessor();
+  unsigned int cpt=0;
   for(auto p: image.domain())
   {
     if (image(p) == 0) continue;
+    cpt++;
     openvdb::Coord xyz(p[0],p[1],p[2]);
     accessor.setValue(xyz, image(p));
   }
+  trace.info() << cpt << " voxels inserted."<<std::endl;
   trace.endBlock();
   
   //Pruning

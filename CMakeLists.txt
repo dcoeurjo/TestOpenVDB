@@ -15,7 +15,8 @@ INCLUDE_DIRECTORIES(${OPENVDB_INCLUDE_DIRS} ${BOOST_INCLUDE_DIRS} ${OPENXR_INCLU
 SET(SRCs
   testOpenVDB
   testPoints
-  vol2vdb)
+  vol2vdb
+  vdb2vol)
 
 FOREACH(FILE ${SRCs})
   add_executable(${FILE} ${FILE})
